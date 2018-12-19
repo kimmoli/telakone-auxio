@@ -19,6 +19,7 @@ extern void cmd_dmw(BaseSequentialStream *chp, int argc, char *argv[]);
 extern void cmd_dmb(BaseSequentialStream *chp, int argc, char *argv[]);
 extern void cmd_out(BaseSequentialStream *chp, int argc, char *argv[]);
 extern void cmd_blink(BaseSequentialStream *chp, int argc, char *argv[]);
+extern void cmd_auxmotor(BaseSequentialStream *chp, int argc, char *argv[]);
 extern void cmd_reboot(BaseSequentialStream *chp, int argc, char *argv[]);
 
 extern const ShellCommand commands[];

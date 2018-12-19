@@ -20,6 +20,7 @@ const ShellCommand commands[] =
     { "dmw",     cmd_dmw },
     { "out",     cmd_out },
     { "blink",   cmd_blink },
+    { "am",      cmd_auxmotor },
     { "reboot",  cmd_reboot },
     {NULL, NULL}
 };

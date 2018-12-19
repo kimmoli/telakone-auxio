@@ -1,11 +1,7 @@
 #ifndef TK_PWM_H
 #define TK_PWM_H
 
-#define TK_PWM_OUT1     1
 #define TK_PWM_OUT2     2
-#define TK_PWM_OUT3     3
-#define TK_PWM_OUT4     4
-#define TK_PWM_OUT5     5
 #define TK_PWM_OUT6     6
 #define TK_PWM_OUT7     7
 #define TK_PWM_OUT8     8

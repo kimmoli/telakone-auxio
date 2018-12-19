@@ -6,13 +6,18 @@
 
 typedef struct
 {
+    int motor;
+    event_source_t event;
     ioline_t motorl1;
     ioline_t motorl2;
     int motorh1_pwm;
     int motorh2_pwm;
+    int newValue;
+    int prevValue;
+    int currentValue;
 } MotorConfig;
 
-extern event_source_t auxMotorEvent;
+extern MotorConfig motorconf[2];
 
 void startAuxmotorThread(int motor);
 void auxmotorControl(MotorConfig *mc, int value);

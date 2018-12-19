@@ -61,13 +61,13 @@ void pwmSetChannel(int ch, int range, int value)
             pwmEnableChannelI(&PWMD1, 2,  PWM_FRACTION_TO_WIDTH(&PWMD1, range, value)); break;
 
         case TK_PWM_MOTOR1H1:
-            pwmEnableChannelI(&PWMD9, 1,  PWM_FRACTION_TO_WIDTH(&PWMD9, range, value)); break;
-        case TK_PWM_MOTOR1H2:
-            pwmEnableChannelI(&PWMD9, 0,  PWM_FRACTION_TO_WIDTH(&PWMD9, range, value)); break;
-        case TK_PWM_MOTOR2H1:
             pwmEnableChannelI(&PWMD5, 1,  PWM_FRACTION_TO_WIDTH(&PWMD5, range, value)); break;
-        case TK_PWM_MOTOR2H2:
+        case TK_PWM_MOTOR1H2:
             pwmEnableChannelI(&PWMD5, 2,  PWM_FRACTION_TO_WIDTH(&PWMD5, range, value)); break;
+        case TK_PWM_MOTOR2H1:
+            pwmEnableChannelI(&PWMD9, 1,  PWM_FRACTION_TO_WIDTH(&PWMD9, range, value)); break;
+        case TK_PWM_MOTOR2H2:
+            pwmEnableChannelI(&PWMD9, 0,  PWM_FRACTION_TO_WIDTH(&PWMD9, range, value)); break;
         default:
             ;
     }
