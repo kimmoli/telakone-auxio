@@ -126,6 +126,7 @@ CSRC = $(STARTUPSRC) \
        shell/cmd_reboot.c \
        shell/cmd_dm.c \
        shell/cmd_out.c \
+       shell/cmd_blink.c \
        threads/threadkiller.c \
        threads/blinker.c \
        threads/auxlink.c \

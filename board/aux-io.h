@@ -2,7 +2,7 @@
 #define IOMAP_H
 /*
  * IO pins assignments.
- * Generated with ELSI Version: 2018.45 STM32 Pinmap tool.
+ * Generated with ELSI Version: 2018.50 STM32 Pinmap tool.
  */
 #define GPIOA_PA0_NC                          0U
 #define GPIOA_PA1_ACCLINKTXE                  1U
@@ -262,9 +262,9 @@
                                      PIN_MODE_INPUT(GPIOA_PA5_NC) | \
                                      PIN_MODE_INPUT(GPIOA_PA6_NC) | \
                                      PIN_MODE_INPUT(GPIOA_PA7_NC) | \
-                                     PIN_MODE_OUTPUT(GPIOA_PA8_OUT_6) | \
-                                     PIN_MODE_OUTPUT(GPIOA_PA9_OUT_7) | \
-                                     PIN_MODE_OUTPUT(GPIOA_PA10_OUT_8) | \
+                                     PIN_MODE_ALTERNATE(GPIOA_PA8_OUT_6) | \
+                                     PIN_MODE_ALTERNATE(GPIOA_PA9_OUT_7) | \
+                                     PIN_MODE_ALTERNATE(GPIOA_PA10_OUT_8) | \
                                      PIN_MODE_ALTERNATE(GPIOA_PA11_USART6TX) | \
                                      PIN_MODE_ALTERNATE(GPIOA_PA12_USART6RX) | \
                                      PIN_MODE_ALTERNATE(GPIOA_PA13_SWDIO_CPU) | \
@@ -286,7 +286,7 @@
                                      PIN_MODE_OUTPUT(GPIOB_PB9_MOTOR1_L2) | \
                                      PIN_MODE_OUTPUT(GPIOB_PB10_OUT_1) | \
                                      PIN_MODE_INPUT(GPIOB_PB11_NC) | \
-                                     PIN_MODE_OUTPUT(GPIOB_PB12_OUT_2) | \
+                                     PIN_MODE_ALTERNATE(GPIOB_PB12_OUT_2) | \
                                      PIN_MODE_OUTPUT(GPIOB_PB13_OUT_3) | \
                                      PIN_MODE_OUTPUT(GPIOB_PB14_OUT_4) | \
                                      PIN_MODE_OUTPUT(GPIOB_PB15_OUT_5))
@@ -1362,9 +1362,9 @@
                                      PIN_AFIO_AF_0(GPIOA_PA5_NC) | \
                                      PIN_AFIO_AF_0(GPIOA_PA6_NC) | \
                                      PIN_AFIO_AF_0(GPIOA_PA7_NC))
-#define VAL_GPIOA_AFRH              (PIN_AFIO_AF_0(GPIOA_PA8_OUT_6) | \
-                                     PIN_AFIO_AF_0(GPIOA_PA9_OUT_7) | \
-                                     PIN_AFIO_AF_0(GPIOA_PA10_OUT_8) | \
+#define VAL_GPIOA_AFRH              (PIN_AFIO_AF_1(GPIOA_PA8_OUT_6) | \
+                                     PIN_AFIO_AF_1(GPIOA_PA9_OUT_7) | \
+                                     PIN_AFIO_AF_1(GPIOA_PA10_OUT_8) | \
                                      PIN_AFIO_AF_8(GPIOA_PA11_USART6TX) | \
                                      PIN_AFIO_AF_8(GPIOA_PA12_USART6RX) | \
                                      PIN_AFIO_AF_0(GPIOA_PA13_SWDIO_CPU) | \
@@ -1386,7 +1386,7 @@
                                      PIN_AFIO_AF_0(GPIOB_PB9_MOTOR1_L2) | \
                                      PIN_AFIO_AF_0(GPIOB_PB10_OUT_1) | \
                                      PIN_AFIO_AF_0(GPIOB_PB11_NC) | \
-                                     PIN_AFIO_AF_0(GPIOB_PB12_OUT_2) | \
+                                     PIN_AFIO_AF_2(GPIOB_PB12_OUT_2) | \
                                      PIN_AFIO_AF_0(GPIOB_PB13_OUT_3) | \
                                      PIN_AFIO_AF_0(GPIOB_PB14_OUT_4) | \
                                      PIN_AFIO_AF_0(GPIOB_PB15_OUT_5))

@@ -5,7 +5,7 @@
 const PWMConfig pwmcfg1 =
 {
     1000000,                                  /* 1 MHz PWM clock frequency.   */
-    500,                                      /* PWM period 500 us, 2kHz */
+    100,                                      /* PWM period 100 us, 10kHz */
     NULL,
     {
         {PWM_OUTPUT_ACTIVE_HIGH, NULL},

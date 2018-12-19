@@ -62,7 +62,7 @@ static THD_FUNCTION(blinkerThread, arg)
         if (flags & BLINKEVENT_BLINK_OFF)
         {
             chVTReset(&blink_vt);
-            pwmSetChannel(TK_PWM_OUT1, 100, 0);
+            pwmSetChannel(TK_PWM_OUT8, 100, 0);
         }
         else if (flags & BLINKEVENT_FAST_BLINK_ON)
         {
@@ -88,7 +88,7 @@ void blinkvtcb(void *arg)
 {
     BlinkPattern *pattern = arg;
 
-    pwmSetChannel(TK_PWM_OUT1, 100, pattern[blinkstep].value);
+    pwmSetChannel(TK_PWM_OUT8, 100, pattern[blinkstep].value);
 
     chSysLockFromISR();
     chVTSetI(&blink_vt, MS2ST(pattern[blinkstep].delay), blinkvtcb, (void *) arg);

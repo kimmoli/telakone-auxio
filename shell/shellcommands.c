@@ -8,7 +8,6 @@ const ShellCommand commands[] =
 {
 #if 0
     { "status",  cmd_status },
-    { "blink",   cmd_blink },
     { "ping",    cmd_ping },
     { "diic",    cmd_diic },
     { "piic",    cmd_piic },
@@ -20,6 +19,7 @@ const ShellCommand commands[] =
     { "dmb",     cmd_dmb },
     { "dmw",     cmd_dmw },
     { "out",     cmd_out },
+    { "blink",   cmd_blink },
     { "reboot",  cmd_reboot },
     {NULL, NULL}
 };
