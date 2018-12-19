@@ -8,20 +8,20 @@ const ShellCommand commands[] =
 {
 #if 0
     { "status",  cmd_status },
-    { "ping",    cmd_ping },
     { "diic",    cmd_diic },
     { "piic",    cmd_piic },
     { "env",     cmd_env },
     { "gps",    cmd_gps },
     { "date",    cmd_date },
     #endif
+    { "reboot",  cmd_reboot },
     { "dm",      cmd_dmb },
     { "dmb",     cmd_dmb },
     { "dmw",     cmd_dmw },
     { "out",     cmd_out },
     { "blink",   cmd_blink },
     { "am",      cmd_auxmotor },
-    { "reboot",  cmd_reboot },
+    { "ping",    cmd_ping },
     {NULL, NULL}
 };
 

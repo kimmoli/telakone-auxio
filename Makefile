@@ -128,6 +128,7 @@ CSRC = $(STARTUPSRC) \
        shell/cmd_out.c \
        shell/cmd_blink.c \
        shell/cmd_auxmotor.c \
+       shell/cmd_ping.c \
        threads/threadkiller.c \
        threads/blinker.c \
        threads/auxlink.c \
