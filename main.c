@@ -8,22 +8,25 @@
 #include "shell.h"
 #include "shellcommands.h"
 
+#include "pwm.h"
+
+#include "threadkiller.h"
+#include "blinker.h"
+#include "auxlink.h"
+#include "auxmotor.h"
+
 #if 0
 
 #include "wdog.h"
 #include "env.h"
-#include "pwm.h"
 #include "exti.h"
 #include "spi.h"
 
-#include "threadkiller.h"
-#include "blinker.h"
 #include "gps.h"
 
 #include "adc.h"
 #include "i2c.h"
 
-#include "auxlink.h"
 #include "messaging.h"
 #endif
 
@@ -41,61 +44,48 @@ int main(void)
 
     consoleStream = (BaseSequentialStream *) &SD6;
 
-
     PRINT("\n\r");
     PRINT("\n\r");
     PRINT("Telakone AUX IO\n\r");
     PRINT("---------------\n\r");
     PRINT("\n\r");
 
-#if 0
-    spiTKInit();
-
-    environment = chHeapAlloc(NULL, ENV_PAGE_SIZE);
-    environ = chHeapAlloc(NULL, ENV_PAGE_SIZE*sizeof(char*));
-
-    memset(environment, 0, ENV_PAGE_SIZE);
-    memset(environ, 0, ENV_PAGE_SIZE*sizeof(char*));
-
-    PRINT(" - Loaded %d variables\n\r", envLoader());
-
-    rtcSTM32SetPeriodicWakeup(&RTCD1, NULL);
-
     pwmTKInit();
-    extiTKInit();
 
+    uint8_t addr = 0x10 | (palReadGroup(GPIOC, 0x03, 0) ^ 0x03); // Address jumpers are at PC1,PC0
+    PRINT("- AUX Link address %02X\n\r", addr);
+
+    auxLinkInit(addr);
+
+#if 0
     crcStart(&CRCD1, NULL);
-
-    i2cTKInit();
-    adcTKInit();
-    adcTKStartConv();
-    auxLinkInit(0x00);
 
     wdogTKKick();
 #endif
+
 #ifndef TK_USE_WDOG
     PRINT(" - Watchdog is disabled\n\r");
 #endif
 
     PRINT(" - Initialisation complete\n\r");
 
-#if 0
     /* Start threads */
     startThreadKiller();
-    startBlinkerThread(); /* Controls the external warning lamps on OUT1 */
-    startGpsThread();     /* GPS Receiver and 1PPS handler thread */
+    startBlinkerThread();
+    startAuxmotorThread(0);
+    startAuxmotorThread(1);
+    startAuxLinkThread(); /* Auxiliary device link */
 
-    startI2cThread();
+#if 0
     startMessagingThread(); /* Parses messages from network */
 
-    startAuxLinkThread(); /* Auxiliary device link */
 #endif
     PRINT(" - Threads started\n\r");
 
     PRINT("\n\r");
 //    cmd_status((BaseSequentialStream *)&SD6, 0, NULL);
 
-    /* Everything is initialised, turh red led off */
+    /* Everything is initialised, turn red led off */
     palClearLine(LINE_LED_RED);
 
     shellInit();
@@ -107,6 +97,5 @@ int main(void)
 //        wdogTKKick();
         chThdSleepMilliseconds(500);
         palToggleLine(LINE_LED_GRN);
-//        palToggleLine(PAL_LINE(GPIOA, 5U));
     }
 }
