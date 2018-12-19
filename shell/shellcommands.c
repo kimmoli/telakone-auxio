@@ -22,6 +22,7 @@ const ShellCommand commands[] =
     { "blink",   cmd_blink },
     { "am",      cmd_auxmotor },
     { "ping",    cmd_ping },
+    { "send",    cmd_send },
     {NULL, NULL}
 };
 

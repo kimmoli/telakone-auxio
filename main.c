@@ -14,6 +14,7 @@
 #include "blinker.h"
 #include "auxlink.h"
 #include "auxmotor.h"
+#include "messaging.h"
 
 #if 0
 
@@ -27,7 +28,6 @@
 #include "adc.h"
 #include "i2c.h"
 
-#include "messaging.h"
 #endif
 
 char *environment;
@@ -50,12 +50,11 @@ int main(void)
     PRINT("---------------\n\r");
     PRINT("\n\r");
 
-    pwmTKInit();
-
     uint8_t addr = 0x10 | (palReadGroup(GPIOC, 0x03, 0) ^ 0x03); // Address jumpers are at PC1,PC0
-    PRINT("- AUX Link address %02X\n\r", addr);
+    PRINT(" - AUX Link address 0x%02X\n\r", addr);
 
     auxLinkInit(addr);
+    pwmTKInit();
 
 #if 0
     crcStart(&CRCD1, NULL);
@@ -75,11 +74,8 @@ int main(void)
     startAuxmotorThread(0);
     startAuxmotorThread(1);
     startAuxLinkThread(); /* Auxiliary device link */
-
-#if 0
     startMessagingThread(); /* Parses messages from network */
 
-#endif
     PRINT(" - Threads started\n\r");
 
     PRINT("\n\r");

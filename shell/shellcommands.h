@@ -21,6 +21,7 @@ extern void cmd_out(BaseSequentialStream *chp, int argc, char *argv[]);
 extern void cmd_blink(BaseSequentialStream *chp, int argc, char *argv[]);
 extern void cmd_auxmotor(BaseSequentialStream *chp, int argc, char *argv[]);
 extern void cmd_ping(BaseSequentialStream *chp, int argc, char *argv[]);
+extern void cmd_send(BaseSequentialStream *chp, int argc, char *argv[]);
 
 extern const ShellCommand commands[];
 extern const ShellConfig shell_cfg_uart;

@@ -122,6 +122,7 @@ CSRC = $(STARTUPSRC) \
        $(SHELLSRC) \
        helpers.c \
        pwm.c \
+       messaging.c \
        shell/shellcommands.c \
        shell/cmd_reboot.c \
        shell/cmd_dm.c \
@@ -129,6 +130,7 @@ CSRC = $(STARTUPSRC) \
        shell/cmd_blink.c \
        shell/cmd_auxmotor.c \
        shell/cmd_ping.c \
+       shell/cmd_send.c \
        threads/threadkiller.c \
        threads/blinker.c \
        threads/auxlink.c \
