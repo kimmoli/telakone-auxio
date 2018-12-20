@@ -19,11 +19,11 @@ static THD_FUNCTION(auxmotorThread, arg)
     event_listener_t elAuxMotor;
     eventflags_t  flags;
 
-    chEvtRegisterMask(&mc->event, &elAuxMotor, 0x100);
+    chEvtRegisterMask(&mc->event, &elAuxMotor, 0x100 << mc->motor);
 
     while (!chThdShouldTerminateX())
     {
-        if (chEvtWaitAnyTimeout(0x100, MS2ST(25)) != 0)
+        if (chEvtWaitAnyTimeout(0x100 << mc->motor, MS2ST(25)) != 0)
         {
             flags = chEvtGetAndClearFlags(&elAuxMotor);
 
@@ -123,6 +123,7 @@ void auxmotorControl(MotorConfig *mc, int value)
         return;
 
     mc->newValue = value;
+    PRINT("motor %d\n\r", mc->motor);
 
     chVTSet(&linearaccel_vt, MS2ST(linearacceldelay), linearaccelcb, mc);
 }

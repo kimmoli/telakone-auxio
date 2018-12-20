@@ -24,7 +24,7 @@
 /*
  * Board identifier.
  */
-#define BOARD_KIMMOLI_TELAKONE
+#define BOARD_AUXIO
 #define BOARD_NAME                  "Telakone AUX IO STM32F410RB"
 
 /*

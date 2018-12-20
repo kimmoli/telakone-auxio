@@ -69,7 +69,7 @@ void pwmSetChannel(int ch, int range, int value)
         case TK_PWM_MOTOR2H2:
             pwmEnableChannelI(&PWMD9, 0,  PWM_FRACTION_TO_WIDTH(&PWMD9, range, value)); break;
         default:
-            ;
+            break;
     }
 }
 
@@ -97,23 +97,23 @@ int pwmGetChannel(int ch, int range)
             period = PWMD5.period;
             break;
         case TK_PWM_MOTOR1H1:
-            width = PWMD9.tim->CCR[1];
-            period = PWMD9.period;
-            break;
-        case TK_PWM_MOTOR1H2:
-            width = PWMD9.tim->CCR[0];
-            period = PWMD9.period;
-            break;
-        case TK_PWM_MOTOR2H1:
             width = PWMD5.tim->CCR[1];
             period = PWMD5.period;
             break;
-        case TK_PWM_MOTOR2H2:
+        case TK_PWM_MOTOR1H2:
             width = PWMD5.tim->CCR[2];
             period = PWMD5.period;
             break;
+        case TK_PWM_MOTOR2H1:
+            width = PWMD9.tim->CCR[1];
+            period = PWMD9.period;
+            break;
+        case TK_PWM_MOTOR2H2:
+            width = PWMD9.tim->CCR[0];
+            period = PWMD9.period;
+            break;
         default:
-            ;
+            break;
     }
     return (range * width) / period;
 }
