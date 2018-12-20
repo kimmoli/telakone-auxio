@@ -88,6 +88,7 @@ PROJECT = telakone-auxio
 # Imported source files and paths
 CHIBIOS = ./ChibiOS
 CHIBIOS_CONTRIB = ./ChibiOS-Contrib
+COMMON = ./common
 
 # Startup files.
 include $(CHIBIOS)/os/common/startup/ARMCMx/compilers/GCC/mk/startup_stm32f4xx.mk
@@ -105,6 +106,8 @@ include $(CHIBIOS)/os/various/shell/shell.mk
 # ChibiOS-Contrib
 include ${CHIBIOS_CONTRIB}/os/hal/hal.mk
 include ${CHIBIOS_CONTRIB}/os/hal/ports/STM32/STM32F4xx/platform.mk
+# Common
+include $(COMMON)/common.mk
 
 # Define linker script file here
 LDSCRIPT= $(STARTUPLD)/STM32F410xB.ld
@@ -120,20 +123,16 @@ CSRC = $(STARTUPSRC) \
        $(BOARDSRC) \
        $(STREAMSSRC) \
        $(SHELLSRC) \
+       $(COMMONSRC) \
        helpers.c \
        pwm.c \
-       messaging.c \
        shell/shellcommands.c \
        shell/cmd_reboot.c \
        shell/cmd_dm.c \
        shell/cmd_out.c \
        shell/cmd_blink.c \
        shell/cmd_auxmotor.c \
-       shell/cmd_ping.c \
-       shell/cmd_send.c \
-       threads/threadkiller.c \
        threads/blinker.c \
-       threads/auxlink.c \
        threads/auxmotor.c \
        main.c
 
@@ -179,6 +178,7 @@ ASMSRC =
 ASMXSRC = $(STARTUPASM) $(PORTASM) $(OSALASM)
 
 INCDIR = ./shell ./threads \
+         $(COMMONINC) \
          $(CHIBIOS)/os/license \
          $(CHIBIOS_CONTRIB)/os/various \
          $(STARTUPINC) $(KERNINC) $(PORTINC) $(OSALINC) \
