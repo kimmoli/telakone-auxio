@@ -27,6 +27,7 @@
 #define BOARD_AUXIO
 #define BOARD_NAME                  "Telakone AUX IO STM32F410RB"
 
+#define MOTORS 2
 /*
  * Use watchdog
  */
