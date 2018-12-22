@@ -124,7 +124,7 @@ CSRC = $(STARTUPSRC) \
        $(STREAMSSRC) \
        $(SHELLSRC) \
        $(COMMONSRC) \
-       helpers.c \
+       $(AUXMOTORSRC) \
        pwm.c \
        shell/shellcommands.c \
        shell/cmd_out.c \
